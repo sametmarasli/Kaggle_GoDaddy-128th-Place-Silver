@@ -97,4 +97,32 @@ def create_submission(df_output,date_submission, model_name, local_score, sample
     print(f"submission is created for date: {date_submission} model: {model_name} with score: {local_score}")
     display(submission.head())
     return submission
-    
+import  matplotlib.pyplot as plt
+
+def plot_two_way_axis(x_axis, data1, axis1, data2, axis2):
+    fig, ax1 = plt.subplots(figsize=(10,3))
+
+    color = 'tab:red'
+    ax1.set_ylabel(axis1, color=color)
+    ax1.plot(x_axis, data1, color=color)
+    ax1.tick_params(axis='y', labelcolor=color)
+
+    ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
+
+    color = 'tab:blue'
+    ax2.set_ylabel(axis2, color=color)  # we already handled the x-label with ax1
+    ax2.plot(x_axis, data2, color=color)
+    ax2.tick_params(axis='y', labelcolor=color)
+
+    fig.tight_layout()  # otherwise the right y-label is slightly clipped
+
+
+def SMAPE_1 (y_true, y_pred):
+    """
+    Symmetric Mean Absolute Percentage Error (SMAPE)
+    """
+    y_true = np.array(y_true)
+    denominator = (np.abs(y_true) + np.abs(y_pred)) / 200.0
+    diff = np.abs(y_true - y_pred) / denominator
+    diff[denominator == 0] = 0.0
+    return np.mean(diff)
