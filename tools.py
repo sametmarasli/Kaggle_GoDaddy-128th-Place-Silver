@@ -116,11 +116,13 @@ def plot_two_way_axis(x_axis, data1, axis1, data2, axis2):
 
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
 
+import numpy as np
 
 def SMAPE_1 (y_true, y_pred):
     """
     Symmetric Mean Absolute Percentage Error (SMAPE)
     """
+    np.seterr(divide='ignore', invalid='ignore')
     y_true = np.array(y_true)
     denominator = (np.abs(y_true) + np.abs(y_pred)) / 200.0
     diff = np.abs(y_true - y_pred) / denominator
