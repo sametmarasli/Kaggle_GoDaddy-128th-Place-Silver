@@ -1,12 +1,4 @@
-# Notes
+# Kaggle Competition : GoDaddy - Microbusiness Density Forecasting 
 
-- quantile = .3 is the sweetspot for the population threshold
-
-
-- SMAPE AND MAE
-https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting/discussion/373548
-
-- SMAPE WEIRDNESS
-https://www.kaggle.com/code/cpmpml/better-smape-for-out-of-box-l2-regression#Normal-L2-Regression-Benchmark
-
-
+The competition results are announced on 17-Jun-2023 and I won a silver medal with position 128 over 3,547 teams. 
+I will share my approach here...
